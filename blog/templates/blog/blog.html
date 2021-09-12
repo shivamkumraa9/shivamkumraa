@@ -1,0 +1,96 @@
+{% extends 'simple/base.html' %}
+{% load static %}
+
+{% block title %}Blog | shivamkumraa.com{% endblock %}
+
+{% block content %}
+<section class="ftco-section all-blogs">
+    <div class="container px-md-0">
+        <h1 class="mb-5 text-center">All Tutorials</h1>
+            <div class="blog-list">
+                {% for blog in current_page.object_list %}
+                    <div>
+                        <div class="col-sm-12 col-md-10 col-lg-8 mx-auto p-sm-5 py-3 px-5 mb-4 blog">
+                            <h4 class="mb-2">
+                                <a href="{% url 'blog:single_blog' blog.slug %}">{{ blog.title }}</a>
+                            </h4>
+                            <p class="mt-4">{{ blog.meta_description }}... <a href="{% url 'blog:single_blog' blog.slug %}">Read More</a> </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+    
+            <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item {% if current_page.has_previous is False %}disabled{% endif %}">
+                          <a class="page-link" href="{% if current_page.has_previous %}{% url 'blog:blog' current_page.previous_page_number %}{% endif %}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                        </li>
+                        
+                        {% for number in paginator.page_range %}
+                            <li class="page-item {% if current == number %}active{% endif %}"><a class="page-link" href="{% url 'blog:blog' number %}">{{ number }}</a></li>
+                        {% endfor %}
+                        <li class="page-item {% if current_page.has_next is False %}disabled{% endif %}">
+                          <a class="page-link" href="{% if current_page.has_next %}{% url 'blog:blog' current_page.next_page_number %}{% endif %}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </li>
+                      </ul>
+              </nav>
+              
+
+            <!-- Infinite Loader -->
+            {% if has_next %}
+            <!-- <div class="text-center">
+                <a id="loadmore" href="#" class="btn btn-primary py-3 px-5">Load More</a>
+            </div> -->
+            {% endif %}
+    </div>
+
+</section>
+{% endblock %}
+
+{% block javascript %}
+<!-- Infinite Loader Javascript -->
+<!-- <script>
+    const LOADMORE = document.querySelector("#loadmore")
+    const BLOGLIST = document.querySelector(".blog-list")
+    if(LOADMORE){
+        let PAGE = 2
+        LOADMORE.addEventListener("click", (event)=>{
+            LOADMORE.innerHTML = `
+            <div class="spinner-border text-light" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            `
+            $.ajax(`/blog/pagination/${PAGE}/`,{
+                success: function(data, status, xhr){
+
+                    data.blogs.forEach(element => {
+                        let div = document.createElement("div")
+                        div.innerHTML = `
+<div class="col-sm-12 col-md-10 col-lg-8 mx-auto p-sm-5 py-3 px-5 mb-4 blog">
+    <h4 class="mb-2">
+        <a href="/blog/${element.slug}/">${element.title}</a>
+    </h4>
+    <p class="mt-4">${element.meta_description}... <a href="/blog/${element.slug}/">Read More</a> </p>
+</div>
+                        `
+                        BLOGLIST.appendChild(div)
+                    });
+
+                    PAGE++
+                    if(!data.has_next){
+                        LOADMORE.style.display = "none";
+                    }
+                    LOADMORE.innerHTML = 'Load More'
+                }
+            })
+            
+        })
+    }
+</script> -->
+{% endblock %}
