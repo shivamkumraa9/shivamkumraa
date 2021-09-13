@@ -9076,7 +9076,7 @@ textarea.form-control {
   position: relative; }
   @media (max-width: 767.98px) {
     .ftco-section {
-      padding: 6em 0; } }
+      padding: 5em 0; } }
 
 .ftco-no-pt {
   padding-top: 0 !important; }
@@ -9815,4 +9815,14 @@ textarea.form-control {
 
 .single-blog pre{
   font-size: 16px;
+}
+
+.main-photo{
+  max-width: 18%;
+}
+
+@media (max-width: 576px) {
+  .main-photo{
+    max-width: 30%;
+  }
 }

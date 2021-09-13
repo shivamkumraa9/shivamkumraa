@@ -2,12 +2,12 @@ from django.shortcuts import render, get_object_or_404
 from blog.models import Blog
 from django.core.paginator import Paginator
 from django.http import JsonResponse, HttpResponseNotFound
+from django.conf import settings
 
-PAGINATION_LIMIT = 10
 
 def blog(request, page):
     blogs = Blog.objects.all().order_by("-pk")
-    paginator = Paginator(blogs, PAGINATION_LIMIT)  
+    paginator = Paginator(blogs, settings.ARTICLE_PAGINATE_BY)  
 
     try:
         current_page = paginator.page(page)
@@ -23,7 +23,7 @@ def blog(request, page):
 
 def blog_pagination(request, page):
     blogs = Blog.objects.all().order_by("-pk")
-    paginator = Paginator(blogs, PAGINATION_LIMIT)
+    paginator = Paginator(blogs, settings.ARTICLE_PAGINATE_BY)
 
     try:
         page = paginator.page(page)

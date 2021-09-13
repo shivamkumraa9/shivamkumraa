@@ -1,6 +1,7 @@
 from django.db import models
 
 class Blog(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=255)
     slug = models.CharField(max_length=255, unique=True)
     content = models.TextField()

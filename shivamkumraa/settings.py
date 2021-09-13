@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'simple',
     'blog'
 ]
@@ -131,6 +132,7 @@ MEDIA_ROOT = Path.joinpath(BASE_DIR,"mediafiles")
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+ARTICLE_PAGINATE_BY = 10
 
 # Keep the local settings seperate from production
 try:

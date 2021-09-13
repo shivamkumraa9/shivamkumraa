@@ -50,7 +50,7 @@
           <div class="col-lg-8 col-md-6 d-flex align-items-center">
           	<div class="text text-center">
 				  <div class="mb-3">
-					<img class="d-block m-auto" style="max-width: 18%; border-radius: 50%; border: 1px solid;" src="{% static 'simple/images/tt.jfif' %}" title="I'm Simone" alt="">
+					<img class="d-block m-auto main-photo" style="border-radius: 50%; border: 1px solid;" src="{% static 'simple/images/tt.jfif' %}" title="Shivam Kumraa's Photo" alt="">
 				  </div>
 
           		<span class="subheading">Hey! I am</span>
@@ -69,7 +69,7 @@
           </div>
         </div>
       </div>
-      <div class="mouse">
+      <div class="mouse d-none d-sm-block">
 				<a href="#" class="mouse-icon">
 					<div class="mouse-wheel">
 						<svg width="11px" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="long-arrow-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="svg-inline--fa fa-long-arrow-down fa-w-8 fa-2x"><path fill="currentColor" d="M252.485 343.03l-7.07-7.071c-4.686-4.686-12.284-4.686-16.971 0L145 419.887V44c0-6.627-5.373-12-12-12h-10c-6.627 0-12 5.373-12 12v375.887l-83.444-83.928c-4.686-4.686-12.284-4.686-16.971 0l-7.07 7.071c-4.686 4.686-4.686 12.284 0 16.97l116 116.485c4.686 4.686 12.284 4.686 16.971 0l116-116.485c4.686-4.686 4.686-12.284-.001-16.97z" class=""></path></svg>					</div>
@@ -83,7 +83,7 @@
 					<h1 class="big big-2">About Me</h1>
 				  <h2 class="mb-4">About Me</h2>
 				</div>
-				<p class="text-center">
+				<p class="text-center container">
 					I am a professional full-stack developer with 3+ years of experience in building high-quality tech products. My experience ranges from building small to medium sized web apps. So far I have worked with 3 companies and 50+ clients. I respect deadlines and love building a long-term relationships with my clients.
 				  </p>
 			  </div>
@@ -788,7 +788,7 @@
                 <li><a href="{% url 'simple:privacy' %}"><span class="icon-long-arrow-right mr-2"></span>Privacy Policy</a></li>
                 <li><a href="{% url 'simple:terms' %}"><span class="icon-long-arrow-right mr-2"></span>Terms</a></li>
                 <li><a href="{% url 'simple:index' %}#about-section"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Site Map</a></li>
+                <li><a href="/sitemap.xml"><span class="icon-long-arrow-right mr-2"></span>Site Map</a></li>
                 <li><a href="{% url 'simple:contact' %}"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
               </ul>
             </div>
