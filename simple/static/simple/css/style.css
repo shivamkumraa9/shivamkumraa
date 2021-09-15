@@ -9805,16 +9805,31 @@ textarea.form-control {
 
 .single-blog p{
   color: black;
-  font-size: 17px;
+  font-size: 16px;
   color: rgb(45, 55, 72);
+  margin-bottom: 1.3rem;
 }
 
 .single-blog h2, .single-blog h3, .single-blog h4, .single-blog h5, .single-blog h6{
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .single-blog pre{
   font-size: 16px;
+}
+
+.single-blog h6{
+  color: black;
+}
+
+.single-blog h2{
+  margin-top: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.single-blog h3, .single-blog h4{
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .main-photo{
